@@ -124,6 +124,9 @@ body {
     background-color: rgb(242, 238, 230);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(82, 75, 68, 0.04);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .carousel-item:first-child {
@@ -142,11 +145,18 @@ body {
     object-fit: contain;
     box-shadow: 0 4px 20px rgba(82, 75, 68, 0.08);
     transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease,
+                opacity 0.5s ease;
     cursor: pointer;
     transform-origin: center center;
     border-radius: 8px;
     border: 1px solid rgba(82, 75, 68, 0.08);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.carousel-item img.fade-in {
+    opacity: 1;
 }
 
 .carousel-item img:hover {
