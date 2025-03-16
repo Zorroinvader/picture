@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: rgb(248, 246, 242);
+    color: rgb(75, 70, 65);
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(248, 246, 242, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(75, 70, 65, 0.08);
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: rgb(145, 135, 125);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: rgb(145, 135, 125);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+    color: rgb(75, 70, 65);
+}
+
+.nav-item:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-item.active {
+    color: rgb(75, 70, 65);
+    font-weight: 500;
+}
+
+.nav-item.active::after {
+    transform: scaleX(1);
+    background-color: rgb(75, 70, 65);
+}
+
+.carousel-container {
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    scroll-snap-type: none;
+    background: rgb(248, 246, 242);
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.year-group {
+    padding: 4rem;
+    position: relative;
+    background-color: transparent;
+    margin: 4rem 0;
+}
+
+.year-group:not(:last-child) {
+    border-bottom: 1px solid rgba(75, 70, 65, 0.08);
+}
+
+.year-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    color: rgb(145, 135, 125);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2rem 0 0 0;
+    display: block;
+    position: relative;
+    border-top: 1px solid rgba(82, 75, 68, 0.08);
+    margin-top: 2rem;
+}
+
+.carousel-item {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 4rem auto;
+    background-color: rgb(242, 238, 230);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(82, 75, 68, 0.04);
+}
+
+.carousel-item:first-child {
+    margin-top: 0;
+}
+
+.carousel-item:last-child {
+    margin-bottom: 0;
+}
+
+.carousel-item img {
+    width: auto;
+    max-width: 100%;
+    max-height: 75vh;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(82, 75, 68, 0.08);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.3s ease;
+    cursor: pointer;
+    transform-origin: center center;
+    border-radius: 8px;
+    border: 1px solid rgba(82, 75, 68, 0.08);
+}
+
+.carousel-item img:hover {
+    transform: scale(1.015);
+    box-shadow: 0 8px 40px rgba(82, 75, 68, 0.12);
+}
+
+/* Add responsive design rules at the end of the file */
+@media screen and (max-width: 768px) {
+    .carousel {
+        padding: 0 1rem;
+    }
+
+    .year-group {
+        padding: 2rem 1rem;
+        margin: 2rem 0;
+    }
+
+    .carousel-item {
+        padding: 1.5rem;
+        margin: 2rem auto;
+        min-height: auto;
+    }
+
+    .carousel-item img {
+        max-height: 85vh;
+    }
+
+    .year-title {
+        font-size: 1rem;
+        padding: 1.5rem 0 0 0;
+        margin-top: 1.5rem;
+    }
+
+    .nav-content {
+        padding: 1rem;
+        gap: 3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel {
+        padding: 0 0.5rem;
+    }
+
+    .year-group {
+        padding: 1.5rem 0.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .carousel-item {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .carousel-item img {
+        max-height: 80vh;
+        border-radius: 6px;
+    }
+
+    .year-title {
+        font-size: 0.9rem;
+        padding: 1rem 0 0 0;
+        margin-top: 1rem;
+    }
+
+    .nav-content {
+        padding: 0.8rem;
+        gap: 2rem;
+    }
+
+    .nav-item {
+        font-size: 0.8rem;
+    }
+} 
