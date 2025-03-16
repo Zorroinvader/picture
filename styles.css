@@ -100,17 +100,15 @@ body {
 }
 
 .year-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
     color: rgb(145, 135, 125);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 2rem 0 0 0;
+    padding: 1.5rem 0 0 0;
     display: block;
-    position: relative;
-    border-top: 1px solid rgba(82, 75, 68, 0.08);
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .carousel-item {
